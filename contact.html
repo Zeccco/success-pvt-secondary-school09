@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Success PVT Secondary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a2e5c;
+            --accent-gold: #d4a017;
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header-wrapper {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            height: 100px;
+            width: auto;
+        }
+
+        .logo-text h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        .motto {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-blue);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .mobile-contact {
+            display: none;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(10, 46, 92, 0.85), rgba(212, 160, 23, 0.7)), url('Intro.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+
+        .breadcrumb span {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Cards */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .contact-card a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-card .contact-link {
+            display: inline-block;
+            margin: 5px 0;
+            color: #555;
+            font-weight: normal;
+        }
+
+        .contact-card .contact-link i {
+            font-size: 1rem;
+            margin-right: 5px;
+            color: var(--accent-gold);
+        }
+
+        /* Contact Form & Map Section */
+        .contact-form-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-container h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .form-container > p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .form-group label i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-submit {
+            background: var(--primary-blue);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .form-submit i {
+            margin-right: 10px;
+        }
+
+        /* Map Container */
+        .map-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .map-container h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .map-container > p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .map-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .map-btn {
+            background: var(--light-bg);
+            color: var(--primary-blue);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-btn:hover {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .map-btn i {
+            color: var(--accent-gold);
+            transition: color 0.3s;
+        }
+
+        .map-btn:hover i {
+            color: var(--primary-blue);
+        }
+
+        /* Staff Directory */
+        .staff-section {
+            background: var(--light-bg);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .staff-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .staff-card i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .staff-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .staff-card .position {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .staff-contact {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .staff-contact p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .staff-contact i {
+            font-size: 0.9rem;
+            margin-right: 5px;
+            color: var(--accent-gold);
+        }
+
+        .staff-contact a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .staff-contact a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Business Hours */
+        .hours-section {
+            margin-bottom: 60px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .hours-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .hours-card i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .hours-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hours-list {
+            list-style: none;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-list .day {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .hours-list .time {
+            color: #666;
+        }
+
+        .holiday-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(212, 160, 23, 0.1);
+            border-radius: 5px;
+            color: #666;
+        }
+
+        .holiday-note i {
+            color: var(--accent-gold);
+            margin-right: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--primary-blue);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .faq-section .section-header h2 {
+            color: white;
+        }
+
+        .faq-section .section-header p {
+            color: #ddd;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .faq-question h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: var(--accent-gold);
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+
+        .faq-answer.show {
+            padding: 0 20px 20px;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* Social Connect */
+        .social-connect {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .social-connect h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .social-icons-large {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon-large {
+            width: 80px;
+            height: 80px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .social-icon-large:hover {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .social-icon-large span {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid h3, .footer-grid h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .footer-grid i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        .footer-grid a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .footer-grid a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .footer-grid div:last-child a {
+            display: inline-block;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .footer-grid div:last-child a i {
+            width: 25px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+            padding-left: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-info {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logo-area {
+                flex-direction: column;
+            }
+
+            .header-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-direction: column;
+                display: none;
+                background: var(--primary-blue);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-contact {
+                display: block;
+            }
+
+            main {
+                margin-top: 170px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-section {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .social-icons-large {
+                gap: 15px;
+            }
+
+            .social-icon-large {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="logo.png" alt="Success School Logo">
+            <div class="logo-text">
+                <h2>Success PVT Secondary School</h2>
+                <small class="motto">Building Futures, Shaping Leaders</small>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="student.html">Student Life</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div>
+        <h1>Contact Us</h1>
+        <p>Get in touch with us for any inquiries or assistance</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <span>Contact</span>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <!-- Contact Cards -->
+        <div class="contact-cards">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p>Chichiri, Blantyre</p>
+                <p>P.O. Box 123</p>
+                <p>Malawi</p>
+                <a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank" class="contact-link">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Us</h3>
+                <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+265999123456">+265 999 123 456</a></p>
+                <p class="contact-link"><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 4:00 PM</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@success.edu.mw">info@success.edu.mw</a></p>
+                <p class="contact-link"><i class="fas fa-reply"></i> We reply within 24 hours</p>
+            </div>
+        </div>
+
+        <!-- Contact Form & Map -->
+        <div class="contact-form-section">
+            <!-- Contact Form -->
+            <div class="form-container">
+                <h3>Send us a Message</h3>
+                <p>Have a question? We're here to help!</p>
+                
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> First Name *</label>
+                            <input type="text" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Last Name *</label>
+                            <input type="text" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email *</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-tag"></i> Subject *</label>
+                        <select required>
+                            <option value="">Select a subject</option>
+                            <option value="admissions">Admissions Inquiry</option>
+                            <option value="academics">Academics</option>
+                            <option value="fees">Fees & Payments</option>
+                            <option value="sports">Sports & Activities</option>
+                            <option value="visit">School Visit</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Message *</label>
+                        <textarea placeholder="Type your message here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Google Map -->
+            <div class="map-container">
+                <h3>Find Us Here</h3>
+                <p>We are located in Chichiri, Blantyre</p>
+                
+                <iframe 
+                    class="map-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d35.123456!3d-15.789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDQ3JzIwLjQiUyAzNcKwMDcnNDAuMCJF!5e0!3m2!1sen!2smw!4v1234567890!5m2!1sen!2smw"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+                
+                <div class="map-actions">
+                    <a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank" class="map-btn">
+                        <i class="fas fa-directions"></i> Open in Google Maps
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Directory 
+        <div class="staff-section">
+            <div class="section-header">
+                <h2>Staff Directory</h2>
+                <p>Contact our staff directly for specific inquiries</p>
+            </div>
+
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Dr. James Mwale</h3>
+                    <div class="position">Principal</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265888123001">+265 888 123 001</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:principal@success.edu.mw">principal@success.edu.mw</a></p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Mrs. Grace Banda</h3>
+                    <div class="position">Vice Principal</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265888123002">+265 888 123 002</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:viceprincipal@success.edu.mw">viceprincipal@success.edu.mw</a></p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Mr. Thomas Chirwa</h3>
+                    <div class="position">Head of Academics</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265888123003">+265 888 123 003</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:academics@success.edu.mw">academics@success.edu.mw</a></p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Mr. Kondwani Phiri</h3>
+                    <div class="position">Bursar (Fees)</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265888123004">+265 888 123 004</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:fees@success.edu.mw">fees@success.edu.mw</a></p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Ms. Sarah Phiri</h3>
+                    <div class="position">Admissions Officer</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265888123005">+265 888 123 005</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:admissions@success.edu.mw">admissions@success.edu.mw</a></p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Ms. Thandiwe Moyo</h3>
+                    <div class="position">Guidance Counselor</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265888123006">+265 888 123 006</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:counselor@success.edu.mw">counselor@success.edu.mw</a></p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <i class="fas fa-futbol"></i>
+                    <h3>Mr. Chikondi Banda</h3>
+                    <div class="position">Sports Director</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265888123007">+265 888 123 007</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:sports@success.edu.mw">sports@success.edu.mw</a></p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Mr. Isaac Mwale</h3>
+                    <div class="position">IT Support</div>
+                    <div class="staff-contact">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Business Hours -->
+        <div class="hours-section">
+            <div class="section-header">
+                <h2>Business Hours</h2>
+                <p>When you can reach us</p>
+            </div>
+
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>School Office</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">8:00 AM - 4:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Saturday</span>
+                            <span class="time">9:00 AM - 12:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Sunday</span>
+                            <span class="time">Closed</span>
+                        </li>
+                    </ul>
+                    <div class="holiday-note">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Closed on public holidays
+                    </div>
+                </div>
+                <div class="hours-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone Support</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Saturday</span>
+                            <span class="time">9:00 AM - 1:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Emergency</span>
+                            <span class="time">24/7</span>
+                        </li>
+                    </ul>
+                    <div class="holiday-note">
+                        <i class="fas fa-phone"></i>
+                        Emergency: +265 999 123 456
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What are the school hours?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>School hours are Monday to Friday from 7:30 AM to 2:30 PM. The office is open from 8:00 AM to 4:00 PM.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How do I apply for admission?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can apply online through our Admissions page or visit the school office to collect an application form.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can I schedule a school tour?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Please contact our admissions office to schedule a tour during school hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How do I pay school fees?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Fees can be paid at the school bursar's office or via bank transfer. Contact our bursar for bank details.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What documents do I need for application?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You'll need a completed application form, birth certificate, previous school reports, and 2 passport photos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Connect -->
+        <div class="social-connect">
+            <h2>Connect With Us</h2>
+            <p>Follow us on social media for updates and news</p>
+            <div class="social-icons-large">
+                <a href="#" class="social-icon-large" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="social-icon-large" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-icon-large" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="#" class="social-icon-large" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Success PVT Secondary School</h3>
+            <p>Building futures through quality education and character development since 1995.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a><br>
+               <a href="about.html">About Us</a><br>
+               <a href="admissions.html">Admissions</a><br>
+               <a href="academics.html">Academics</a><br>
+               <a href="student.html">Student Life</a></p>
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <p><a href="calendar.html">Calendar</a><br>
+               <a href="staff.html">Staff Directory</a></p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p><a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank"><i class="fas fa-map-marker-alt"></i> Chichiri, Blantyre, Malawi</a><br>
+               <a href="tel:+265992995151"><i class="fas fa-phone"></i> +265 992995151</a><br>
+               <a href="mailto:macmillanisaac08@gmail.com?subject=Enquiry%20from%20Success%20School%20Website&body=Hello%2C%20I%20would%20like%20to%20inquire%20about%3A"><i class="fas fa-envelope"></i> macmillanisaac08@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Success PVT Secondary School. All rights reserved. | Developed by Mc Phone Accessories</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-links").classList.toggle("show");
+    }
+
+    function toggleFAQ(element) {
+        var answer = element.nextElementSibling;
+        var icon = element.querySelector('i');
+        
+        if (answer.classList.contains('show')) {
+            answer.classList.remove('show');
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        } else {
+            answer.classList.add('show');
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+</script>
+
+</body>
+</html>

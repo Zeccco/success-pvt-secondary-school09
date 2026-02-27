@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Success PVT Secondary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a2e5c;
+            --accent-gold: #d4a017;
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header-wrapper {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            height: 100px;
+            width: auto;
+        }
+
+        .logo-text h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        .motto {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-blue);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .mobile-contact {
+            display: none;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(10, 46, 92, 0.85), rgba(212, 160, 23, 0.7)), url('About.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+
+        .breadcrumb span {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        /* About Story Section */
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .story-content h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .story-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .story-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .story-content .highlight-text {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        /* Mission Vision Section */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .mission-box, .vision-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .mission-box:hover, .vision-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .mission-box i, .vision-box i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .mission-box h3, .vision-box h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .mission-box p, .vision-box p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Core Values */
+        .values-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .values-section h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .values-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .value-card:hover {
+            border-bottom-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4a7a 100%);
+            padding: 60px 5%;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 20px;
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .stat-card .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Team Section */
+        .team-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-section h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .team-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .team-info .position {
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .team-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .team-social a {
+            color: var(--primary-blue);
+            transition: color 0.3s;
+        }
+
+        .team-social a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(10, 46, 92, 0.9), rgba(10, 46, 92, 0.9)), url('Intro.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 5%;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 15px 45px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: transform 0.3s;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background: #e5b01a;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid h3, .footer-grid h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .footer-grid i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        .footer-grid a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .footer-grid a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .footer-grid div:last-child a {
+            display: inline-block;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .footer-grid div:last-child a i {
+            width: 25px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+            padding-left: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-info {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logo-area {
+                flex-direction: column;
+            }
+
+            .header-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-direction: column;
+                display: none;
+                background: var(--primary-blue);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-contact {
+                display: block;
+            }
+
+            main {
+                margin-top: 170px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-story {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .story-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="logo.png" alt="Success School Logo">
+            <div class="logo-text">
+                <h2>Success PVT Secondary School</h2>
+                <small class="motto">Building Futures, Shaping Leaders</small>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="student.html">Student Life</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div>
+        <h1>About Us</h1>
+        <p>Discover the story, mission, and values that make Success PVT Secondary School a center of excellence</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <span>About</span>
+        </div>
+    </div>
+</section>
+
+<main>
+    <!-- About Story Section -->
+    <div class="container">
+        <div class="about-story">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded in 1995, Success PVT Secondary School began with a simple vision: to provide quality education that nurtures both academic excellence and character development. What started as a small school with just 45 students has grown into one of Malawi's most respected secondary institutions.</p>
+                <p>Located in Chichiri, Blantyre, our school has consistently maintained high standards of education, producing students who excel in national examinations and go on to become leaders in various fields. Our commitment to holistic education ensures that every student receives not just academic knowledge, but also the skills and values needed to succeed in life.</p>
+                <p>Over the past three decades, we have expanded our facilities, added modern laboratories, a well-stocked library, computer labs, and sports grounds. Today, we serve over 500 students with a team of 25 dedicated teachers who are passionate about shaping the next generation of leaders.</p>
+                <p class="highlight-text">"Building futures through quality education and character development."</p>
+            </div>
+            <div class="story-image">
+                <img src="about.jpg" alt="Success School History">
+            </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="mission-vision">
+            <div class="mission-box">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To provide quality, inclusive, and holistic education that nurtures academic excellence, critical thinking, and moral integrity, preparing students to become responsible and productive citizens.</p>
+            </div>
+            <div class="vision-box">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To be a center of academic excellence that produces well-rounded, innovative, and ethical leaders who positively impact their communities and the nation at large.</p>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="values-section">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Excellence</h3>
+                    <p>We strive for the highest standards in everything we do, from teaching to student performance.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Integrity</h3>
+                    <p>We uphold honesty, fairness, and strong moral principles in all our interactions.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Respect</h3>
+                    <p>We value diversity and treat everyone with dignity, kindness, and consideration.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>We embrace new ideas and modern teaching methods to enhance learning.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Community</h3>
+                    <p>We foster a sense of belonging and encourage service to others.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Discipline</h3>
+                    <p>We cultivate self-discipline and responsibility in all our students.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="stat-number">29+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Current Students</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Qualified Teachers</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Pass Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <h2>Our Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="principal.JFIF" alt="Principal">
+                    <div class="team-info">
+                        <h3>Dr. James Mwale</h3>
+                        <div class="position">Principal</div>
+                        <p>PhD in Education Leadership with 20+ years of experience in secondary education.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="vice principal.JFIF" alt="Vice Principal">
+                    <div class="team-info">
+                        <h3>Mrs. Grace Banda</h3>
+                        <div class="position">Vice Principal</div>
+                        <p>Master's in Educational Administration, specializing in curriculum development.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="head teacher.JFIF" alt="Head Teacher">
+                    <div class="team-info">
+                        <h3>Mr. Thomas Chirwa</h3>
+                        <div class="position">Head of Academics</div>
+                        <p>Experienced educator passionate about innovative teaching methods.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="counselor.JFIF" alt="Counselor">
+                    <div class="team-info">
+                        <h3>Ms. Sarah Phiri</h3>
+                        <div class="position">Guidance Counselor</div>
+                        <p>Dedicated to supporting student welfare and career guidance.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Join the Success Family</h2>
+            <p>Experience quality education in a nurturing environment. Enroll today and take the first step towards a bright future.</p>
+            <a href="admissions.html" class="cta-btn">Apply Now</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Success PVT Secondary School</h3>
+            <p>Building futures through quality education and character development since 1995.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <p> <a href="index.html">Home</a><br>
+                <a href="about.html">About Us</a><br>
+                <a href="academics.html">Academics</a><br>
+                <a href="admissions.html">Admissions</a><br>
+                <a href="student.html">Student Life</a><br>
+                <a href="contact.html">Contact</a><br>
+                
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <p><a href="calendar.html">Calendar</a><br>
+            <a href="staff.html">Staff Directory</a></p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p><a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank"><i class="fas fa-map-marker-alt"></i> Chichiri, Blantyre, Malawi</a><br>
+               <a href="tel:+265992995151"><i class="fas fa-phone"></i> +265 992995151</a><br>
+               <a href="mailto:macmillanisaac08@gmail.com?subject=Enquiry%20from%20Success%20School%20Website&body=Hello%2C%20I%20would%20like%20to%20inquire%20about%3A"><i class="fas fa-envelope"></i> macmillanisaac08@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Success PVT Secondary School. All rights reserved. | Developed by Mc Phone Accessories</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-links").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

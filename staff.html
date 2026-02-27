@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Directory - Success PVT Secondary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a2e5c;
+            --accent-gold: #d4a017;
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header-wrapper {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            height: 100px;
+            width: auto;
+        }
+
+        .logo-text h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        .motto {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-blue);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .mobile-contact {
+            display: none;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(10, 46, 92, 0.85), rgba(212, 160, 23, 0.7)), url('Intro.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+
+        .breadcrumb span {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Search and Filter */
+        .search-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
+        }
+
+        .search-box button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            background: var(--light-bg);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-blue);
+            transition: all 0.3s;
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Staff Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Staff Grid */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .staff-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--accent-gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .staff-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4a7a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .staff-image i {
+            font-size: 5rem;
+            color: var(--accent-gold);
+            opacity: 0.8;
+        }
+
+        .staff-info {
+            padding: 20px;
+        }
+
+        .staff-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .staff-position {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .staff-department {
+            background: var(--light-bg);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .staff-contact {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .staff-contact p {
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .staff-contact i {
+            color: var(--accent-gold);
+            width: 16px;
+        }
+
+        .staff-contact a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .staff-contact a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        /* Leadership Team */
+        .leadership-section {
+            background: var(--light-bg);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .leadership-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leadership-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4a7a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .leadership-image i {
+            font-size: 6rem;
+            color: var(--accent-gold);
+        }
+
+        .leadership-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .leadership-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .leadership-info .title {
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .leadership-info .qualification {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .leadership-contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .leadership-contact a {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .leadership-contact a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Department Sections */
+        .department-section {
+            margin-bottom: 40px;
+        }
+
+        .department-title {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .department-title i {
+            color: var(--accent-gold);
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid h3, .footer-grid h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .footer-grid i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        .footer-grid a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .footer-grid a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .footer-grid div:last-child a {
+            display: inline-block;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .footer-grid div:last-child a i {
+            width: 25px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+            padding-left: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-info {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logo-area {
+                flex-direction: column;
+            }
+
+            .header-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-direction: column;
+                display: none;
+                background: var(--primary-blue);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-contact {
+                display: block;
+            }
+
+            main {
+                margin-top: 170px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="logo.png" alt="Success School Logo">
+            <div class="logo-text">
+                <h2>Success PVT Secondary School</h2>
+                <small class="motto">Building Futures, Shaping Leaders</small>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="student-life.html">Student Life</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="staff-directory.html" class="active">Staff</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div>
+        <h1>Staff Directory</h1>
+        <p>Meet our dedicated team of educators and staff</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <span>Staff Directory</span>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <!-- Staff Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div class="number">28</div>
+                <div class="label">Teaching Staff</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-user-tie"></i>
+                <div class="number">8</div>
+                <div class="label">Administration</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-tools"></i>
+                <div class="number">7</div>
+                <div class="label">Support Staff</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="number">15+</div>
+                <div class="label">Years Experience</div>
+            </div>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="staffSearch" placeholder="Search by name, department, or position...">
+                <button onclick="searchStaff()"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" onclick="filterStaff('all')">All Staff</button>
+                <button class="filter-tab" onclick="filterStaff('leadership')">Leadership</button>
+                <button class="filter-tab" onclick="filterStaff('science')">Science</button>
+                <button class="filter-tab" onclick="filterStaff('humanities')">Humanities</button>
+                <button class="filter-tab" onclick="filterStaff('commerce')">Commerce & ICT</button>
+                <button class="filter-tab" onclick="filterStaff('vocational')">Vocational</button>
+                <button class="filter-tab" onclick="filterStaff('administration')">Administration</button>
+                <button class="filter-tab" onclick="filterStaff('support')">Support</button>
+            </div>
+        </div>
+
+        <!-- Leadership Team -->
+        <div class="leadership-section" id="leadership-section">
+            <div class="section-header">
+                <h2>School Leadership</h2>
+                <p>Our experienced management team</p>
+            </div>
+
+            <div class="leadership-grid">
+                <div class="leadership-card">
+                    <div class="leadership-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="leadership-info">
+                        <h3>Dr. James Mwale</h3>
+                        <div class="title">Principal</div>
+                        <div class="qualification">PhD in Education Leadership, 20+ years experience</div>
+                        <div class="leadership-contact">
+                            <a href="tel:+265888123001"><i class="fas fa-phone"></i></a>
+                            <a href="mailto:principal@success.edu.mw"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leadership-card">
+                    <div class="leadership-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="leadership-info">
+                        <h3>Mrs. Grace Banda</h3>
+                        <div class="title">Vice Principal</div>
+                        <div class="qualification">Master's in Educational Administration</div>
+                        <div class="leadership-contact">
+                            <a href="tel:+265888123002"><i class="fas fa-phone"></i></a>
+                            <a href="mailto:viceprincipal@success.edu.mw"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leadership-card">
+                    <div class="leadership-image">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="leadership-info">
+                        <h3>Mr. Thomas Chirwa</h3>
+                        <div class="title">Head of Academics</div>
+                        <div class="qualification">Master's in Curriculum Development</div>
+                        <div class="leadership-contact">
+                            <a href="tel:+265888123003"><i class="fas fa-phone"></i></a>
+                            <a href="mailto:academics@success.edu.mw"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Science Department -->
+        <div class="department-section" id="science-dept">
+            <h2 class="department-title"><i class="fas fa-flask"></i> Science Department</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Kondwani Phiri</h3>
+                        <div class="staff-position">Head of Science</div>
+                        <div class="staff-department">Physics</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123010">+265 888 123 010</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:k.phiri@success.edu.mw">k.phiri@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Chisomo Banda</h3>
+                        <div class="staff-position">Chemistry Teacher</div>
+                        <div class="staff-department">Science</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123011">+265 888 123 011</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:c.banda@success.edu.mw">c.banda@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. David Moyo</h3>
+                        <div class="staff-position">Biology Teacher</div>
+                        <div class="staff-department">Science</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123012">+265 888 123 012</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:d.moyo@success.edu.mw">d.moyo@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Thandiwe Phiri</h3>
+                        <div class="staff-position">Mathematics Teacher</div>
+                        <div class="staff-department">Mathematics</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123013">+265 888 123 013</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:t.phiri@success.edu.mw">t.phiri@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Humanities Department -->
+        <div class="department-section" id="humanities-dept">
+            <h2 class="department-title"><i class="fas fa-book"></i> Humanities Department</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mrs. Elizabeth Mkandawire</h3>
+                        <div class="staff-position">Head of Humanities</div>
+                        <div class="staff-department">History</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123014">+265 888 123 014</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:e.mkandawire@success.edu.mw">e.mkandawire@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. George Chilenge</h3>
+                        <div class="staff-position">Geography Teacher</div>
+                        <div class="staff-department">Geography</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123015">+265 888 123 015</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:g.chilenge@success.edu.mw">g.chilenge@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Patricia Banda</h3>
+                        <div class="staff-position">Literature Teacher</div>
+                        <div class="staff-department">English</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123016">+265 888 123 016</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:p.banda@success.edu.mw">p.banda@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Reverend Peter Chibwana</h3>
+                        <div class="staff-position">Religious Studies</div>
+                        <div class="staff-department">Religious Education</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123017">+265 888 123 017</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:p.chibwana@success.edu.mw">p.chibwana@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Commerce & ICT Department -->
+        <div class="department-section" id="commerce-dept">
+            <h2 class="department-title"><i class="fas fa-laptop-code"></i> Commerce & ICT Department</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Isaac Mwale</h3>
+                        <div class="staff-position">ICT & Computer Studies</div>
+                        <div class="staff-department">ICT</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992 995 151</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mrs. Sarah Phiri</h3>
+                        <div class="staff-position">Business Studies</div>
+                        <div class="staff-department">Commerce</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123018">+265 888 123 018</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:s.phiri@success.edu.mw">s.phiri@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Joseph Banda</h3>
+                        <div class="staff-position">Accounting Teacher</div>
+                        <div class="staff-department">Commerce</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123019">+265 888 123 019</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:j.banda@success.edu.mw">j.banda@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Chimwemwe Chisale</h3>
+                        <div class="staff-position">Computer Labs Assistant</div>
+                        <div class="staff-department">ICT</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123020">+265 888 123 020</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:c.chisale@success.edu.mw">c.chisale@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocational Department (NEW) -->
+        <div class="department-section" id="vocational-dept">
+            <h2 class="department-title"><i class="fas fa-tools"></i> Vocational Department</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Patrick Mwale</h3>
+                        <div class="staff-position">Head of Vocational</div>
+                        <div class="staff-department">Woodwork</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123021">+265 888 123 021</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:p.mwale@success.edu.mw">p.mwale@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Charles Banda</h3>
+                        <div class="staff-position">Metalwork Instructor</div>
+                        <div class="staff-department">Metalwork</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123022">+265 888 123 022</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:c.banda@success.edu.mw">c.banda@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Francis Phiri</h3>
+                        <div class="staff-position">Technical Drawing</div>
+                        <div class="staff-department">Technical</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123023">+265 888 123 023</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:f.phiri@success.edu.mw">f.phiri@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Andrew Moyo</h3>
+                        <div class="staff-position">Agriculture Teacher</div>
+                        <div class="staff-department">Agriculture</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123024">+265 888 123 024</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:a.moyo@success.edu.mw">a.moyo@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Administration Department (NEW) -->
+        <div class="department-section" id="administration-dept">
+            <h2 class="department-title"><i class="fas fa-building"></i> Administration Department</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Kondwani Phiri</h3>
+                        <div class="staff-position">School Bursar</div>
+                        <div class="staff-department">Finance</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123004">+265 888 123 004</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:fees@success.edu.mw">fees@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Sarah Phiri</h3>
+                        <div class="staff-position">Admissions Officer</div>
+                        <div class="staff-department">Admissions</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123005">+265 888 123 005</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:admissions@success.edu.mw">admissions@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Thandiwe Moyo</h3>
+                        <div class="staff-position">Guidance Counselor</div>
+                        <div class="staff-department">Student Welfare</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123006">+265 888 123 006</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:counselor@success.edu.mw">counselor@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Chikondi Banda</h3>
+                        <div class="staff-position">Sports Director</div>
+                        <div class="staff-department">Co-curricular</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123007">+265 888 123 007</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:sports@success.edu.mw">sports@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mrs. Alice Mwale</h3>
+                        <div class="staff-position">Secretary</div>
+                        <div class="staff-department">Administration</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123025">+265 888 123 025</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:secretary@success.edu.mw">secretary@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. John Banda</h3>
+                        <div class="staff-position">Records Officer</div>
+                        <div class="staff-department">Administration</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123026">+265 888 123 026</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:records@success.edu.mw">records@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Staff Department (NEW) -->
+        <div class="department-section" id="support-dept">
+            <h2 class="department-title"><i class="fas fa-hands-helping"></i> Support Staff</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. James Phiri</h3>
+                        <div class="staff-position">Librarian</div>
+                        <div class="staff-department">Library</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123027">+265 888 123 027</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:library@success.edu.mw">library@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Mary Banda</h3>
+                        <div class="staff-position">Lab Technician</div>
+                        <div class="staff-department">Science Lab</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123028">+265 888 123 028</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:lab@success.edu.mw">lab@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Peter Moyo</h3>
+                        <div class="staff-position">Security Supervisor</div>
+                        <div class="staff-department">Security</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123029">+265 888 123 029</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:security@success.edu.mw">security@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mrs. Ellen Chisale</h3>
+                        <div class="staff-position">Matron (Girls)</div>
+                        <div class="staff-department">Boarding</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123030">+265 888 123 030</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:matron@success.edu.mw">matron@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Joseph Chirwa</h3>
+                        <div class="staff-position">Patron (Boys)</div>
+                        <div class="staff-department">Boarding</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123031">+265 888 123 031</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:patron@success.edu.mw">patron@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mr. Samuel Banda</h3>
+                        <div class="staff-position">Maintenance Supervisor</div>
+                        <div class="staff-department">Maintenance</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123032">+265 888 123 032</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:maintenance@success.edu.mw">maintenance@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3>Ms. Grace Mwale</h3>
+                        <div class="staff-position">Cafeteria Manager</div>
+                        <div class="staff-department">Catering</div>
+                        <div class="staff-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:+265888123033">+265 888 123 033</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:cafeteria@success.edu.mw">cafeteria@success.edu.mw</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Success PVT Secondary School</h3>
+            <p>Building futures through quality education and character development since 1995.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <p>
+                <a href="index.html">Home</a><br>
+                <a href="about.html">About Us</a><br>
+                <a href="academics.html">Academics</a><br>
+                <a href="admissions.html">Admissions</a><br>
+                <a href="student.html">Student Life</a><br>
+                <a href="contact.html">Contact</a><br>
+                
+            </p>
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <p>
+                <a href="calendar.html">Academic Calendar</a><br>
+                <a href="staff.html">Staff Directory</a>
+            </p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>
+                <a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank"><i class="fas fa-map-marker-alt"></i> Chichiri, Blantyre, Malawi</a><br>
+                <a href="tel:+265992995151"><i class="fas fa-phone"></i> +265 992995151</a><br>
+                <a href="mailto:macmillanisaac08@gmail.com?subject=Enquiry%20from%20Success%20School%20Website"><i class="fas fa-envelope"></i> macmillanisaac08@gmail.com</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Success PVT Secondary School. All rights reserved. | Developed by Mc Phone Accessories</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-links").classList.toggle("show");
+    }
+
+    // Search function
+    function searchStaff() {
+        const searchTerm = document.getElementById('staffSearch').value.toLowerCase();
+        const staffCards = document.querySelectorAll('.staff-card, .leadership-card');
+        
+        staffCards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(searchTerm) || searchTerm === '') {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Filter function
+    function filterStaff(category) {
+        // Update active tab
+        const tabs = document.querySelectorAll('.filter-tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Get all sections
+        const leadershipSection = document.getElementById('leadership-section');
+        const scienceDept = document.getElementById('science-dept');
+        const humanitiesDept = document.getElementById('humanities-dept');
+        const commerceDept = document.getElementById('commerce-dept');
+        const vocationalDept = document.getElementById('vocational-dept');
+        const administrationDept = document.getElementById('administration-dept');
+        const supportDept = document.getElementById('support-dept');
+
+        // Hide all sections first
+        leadershipSection.style.display = 'none';
+        scienceDept.style.display = 'none';
+        humanitiesDept.style.display = 'none';
+        commerceDept.style.display = 'none';
+        vocationalDept.style.display = 'none';
+        administrationDept.style.display = 'none';
+        supportDept.style.display = 'none';
+
+        // Show sections based on category
+        if (category === 'all') {
+            leadershipSection.style.display = 'block';
+            scienceDept.style.display = 'block';
+            humanitiesDept.style.display = 'block';
+            commerceDept.style.display = 'block';
+            vocationalDept.style.display = 'block';
+            administrationDept.style.display = 'block';
+            supportDept.style.display = 'block';
+        } else if (category === 'leadership') {
+            leadershipSection.style.display = 'block';
+        } else if (category === 'science') {
+            scienceDept.style.display = 'block';
+        } else if (category === 'humanities') {
+            humanitiesDept.style.display = 'block';
+        } else if (category === 'commerce') {
+            commerceDept.style.display = 'block';
+        } else if (category === 'vocational') {
+            vocationalDept.style.display = 'block';
+        } else if (category === 'administration') {
+            administrationDept.style.display = 'block';
+        } else if (category === 'support') {
+            supportDept.style.display = 'block';
+        }
+    }
+
+    // Enter key in search
+    document.getElementById('staffSearch').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchStaff();
+        }
+    });
+</script>
+
+</body>
+</html>

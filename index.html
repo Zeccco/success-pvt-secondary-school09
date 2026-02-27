@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success PVT Secondary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a2e5c;
+            --accent-gold: #d4a017;
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header-wrapper {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            height: 100px;
+            width: auto;
+        }
+
+        .logo-text h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        .motto {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-blue);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .mobile-contact {
+            display: none;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main */
+        main {
+            background: white;
+        }
+
+        /* Hero Section - Using Intro.jpg */
+        .hero {
+            height: 500px;
+            background: 
+                linear-gradient(rgba(10, 46, 92, 0.7), rgba(212, 160, 23, 0.5)),
+                url('intro.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero div {
+            max-width: 800px;
+            padding: 30px;
+        }
+
+        .hero-logo {
+            width: 150px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-explore {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s;
+            border: 2px solid white;
+        }
+
+        .btn-explore:hover {
+            transform: scale(1.05);
+            background: #e5b01a;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .section.light {
+            background: var(--light-bg);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .hidden-programs,
+        .hidden-activities {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .hidden-programs.show,
+        .hidden-activities.show {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .see-all-btn {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-gold);
+            margin-top: 40px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .see-all-btn:hover {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 50px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid h3, .footer-grid h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .footer-grid i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        /* Footer link styles */
+        .footer-grid a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .footer-grid a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        /* Special styling for contact links to keep icon and text together */
+        .footer-grid div:last-child a {
+            display: inline-block;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .footer-grid div:last-child a i {
+            width: 25px;
+            color: var(--accent-gold);
+            transition: color 0.3s ease;
+        }
+
+        .footer-grid div:last-child a:hover i {
+            color: white;
+        }
+
+        /* Social Media Icons */
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-info {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logo-area {
+                flex-direction: column;
+            }
+
+            .header-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-direction: column;
+                display: none;
+                background: var(--primary-blue);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-contact {
+                display: block;
+            }
+
+            main {
+                margin-top: 170px;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-logo {
+                width: 120px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .social-links {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="logo.png" alt="Success School Logo">
+            <div class="logo-text">
+                <h2>Success PVT Secondary School</h2>
+                <small class="motto">Building Futures, Shaping Leaders</small>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="student.html">Student Life</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<main>
+    <!-- Hero Section with Intro.jpg - School Building -->
+    <section class="hero">
+        <div>
+            <h2>Welcome to Success PVT Secondary School</h2>
+            <!-- Add your logo here if you want it back -->
+            <!-- <img src="logo.png" alt="Success School Logo" class="hero-logo"> -->
+            <p>Excellence in Education • Character Development • Future Leaders</p>
+            <a href="admissions.html" class="btn-explore">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Academic Programs Section -->
+    <section class="section">
+        <h2>OUR ACADEMIC PROGRAMS</h2>
+        <div class="grid" id="initial-programs">
+            <div class="card">
+                <img src="science.jpeg" alt="Science Laboratory">
+                <div class="card-content">
+                    <h3>Science Stream</h3>
+                    <p>Physics, Chemistry, Biology, Mathematics. Fully equipped laboratories.</p>
+                    <span class="highlight">Top performers</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="history.jpeg" alt="Library Building">
+                <div class="card-content">
+                    <h3>Humanities Stream</h3>
+                    <p>History, Geography, Literature, Religious Studies.</p>
+                    <span class="highlight">Excellent results</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="it.jpeg" alt="Computer Laboratory">
+                <div class="card-content">
+                    <h3>Commerce & ICT</h3>
+                    <p>Accounting, Business Studies, Computer Science.</p>
+                    <span class="highlight">Modern computer lab</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Programs (7 additional programs) -->
+        <div class="hidden-programs" id="hidden-programs">
+            <div class="grid">
+                <div class="card">
+                    <img src="maths.jfif" alt="Mathematics">
+                    <div class="card-content">
+                        <h3>Mathematics</h3>
+                        <p>Advanced Mathematics, Statistics, and Pure Mathematics with experienced instructors.</p>
+                        <span class="highlight">Excellence in numbers</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="language.jfif" alt="Languages">
+                    <div class="card-content">
+                        <h3>Languages</h3>
+                        <p>English Literature, Chichewa, French, and Communication Skills.</p>
+                        <span class="highlight">Multilingual excellence</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="technical.jfif" alt="Vocational">
+                    <div class="card-content">
+                        <h3>Vocational Skills</h3>
+                        <p>Woodwork, Metalwork, Technical Drawing, and Building Construction.</p>
+                        <span class="highlight">Hands-on training</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="agr.jpg" alt="Agriculture">
+                    <div class="card-content">
+                        <h3>Agriculture</h3>
+                        <p>Crop Science, Animal Husbandry, and Agricultural Economics.</p>
+                        <span class="highlight">Sustainable farming</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fine arts.jfif" alt="Fine Arts">
+                    <div class="card-content">
+                        <h3>Fine Arts</h3>
+                    <p>Art and Design, Music, Theatre Arts, and Creative Expression.</p>
+                        <span class="highlight">Creative excellence</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="healthy.jfif" alt="Physical Education">
+                    <div class="card-content">
+                        <h3>Physical Education</h3>
+                        <p>Sports Science, Health Education, and Athletic Training.</p>
+                        <span class="highlight">Healthy body, healthy mind</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="life skills.jfif" alt="Life Skills">
+                    <div class="card-content">
+                        <h3>Life Skills</h3>
+                        <p>Leadership, Entrepreneurship, Guidance and Counseling.</p>
+                        <span class="highlight">Preparing for life</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="see-all-btn" id="see-all-programs-btn" onclick="togglePrograms()">See All Programs</button>
+    </section>
+
+    <!-- About Section -->
+    <section class="section light">
+        <h2>ABOUT SUCCESS SECONDARY SCHOOL</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="about.jpg" alt="Students studying">
+            </div>
+            <div class="about-text">
+                <p>Founded in 1995, Success PVT Secondary School has consistently provided quality education to students from across Malawi. Our mission is to nurture academic excellence, discipline, and leadership.</p>
+                <p>We offer a conducive learning environment with modern facilities, experienced teachers, and a curriculum that prepares students for both national exams and global opportunities.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div>Pass Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div>Students</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25</div>
+                        <div>Teachers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Life Section -->
+    <section class="section">
+        <h2>STUDENT LIFE</h2>
+        <div class="grid" id="initial-activities">
+            <div class="card">
+                <img src="sports.jpg" alt="Sports">
+                <div class="card-content">
+                    <h3>Sports & Recreation</h3>
+                    <p>Football, netball, basketball, athletics. Annual sports day.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="library.jpeg" alt="Library">
+                <div class="card-content">
+                    <h3>Library & Resources</h3>
+                    <p>Well-stocked library with textbooks, novels, and past papers.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="club.jpeg" alt="Clubs">
+                <div class="card-content">
+                    <h3>Clubs & Societies</h3>
+                    <p>Debate club, science club, journalism, drama, and more.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Activities (5 additional activities) -->
+        <div class="hidden-activities" id="hidden-activities">
+            <div class="grid">
+                <div class="card">
+                    <img src="choir.jpg" alt="Music">
+                    <div class="card-content">
+                        <h3>Music & Choir</h3>
+                        <p>School choir, band practice, music lessons, and annual music festivals.</p>
+                        <span class="highlight">Harmony in education</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="trip.jpg" alt="Field Trips">
+                    <div class="card-content">
+                        <h3>Educational Trips</h3>
+                        <p>Historical sites, museum visits, nature walks, and educational tours.</p>
+                        <span class="highlight">Learning beyond classroom</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="community.jfif" alt="Community Service">
+                    <div class="card-content">
+                        <h3>Community Service</h3>
+                        <p>Volunteer work, charity events, environmental clean-up, and outreach programs.</p>
+                        <span class="highlight">Giving back to society</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="comp.jfif" alt="Competitions">
+                    <div class="card-content">
+                        <h3>Academic Competitions</h3>
+                        <p>Quiz bowls, spelling bees, science fairs, and debate championships.</p>
+                        <span class="highlight">Challenge yourself</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="culture.jfif" alt="Cultural Events">
+                    <div class="card-content">
+                        <h3>Cultural Events</h3>
+                        <p>Cultural day, traditional dances, food fairs, and heritage celebrations.</p>
+                        <span class="highlight">Celebrating diversity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="see-all-btn" id="see-all-activities-btn" onclick="toggleActivities()">See All Activities</button>
+    </section>
+
+    <!-- Opening Hours / Contact Section -->
+    <section class="section light">
+        <h2>CONTACT & HOURS</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3><i class="fas fa-clock"></i> School Hours</h3>
+                    <p>Monday – Friday</p>
+                    <strong>07:30 AM – 02:30 PM</strong>
+                    <p class="highlight" style="margin-top:10px;">Office: 08:00 – 04:00</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+                    <p>Chichiri, Blantyre</p>
+                    <p>P.O. Box 123</p>
+                    <p>Malawi</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3><i class="fas fa-phone-alt"></i> Get in Touch</h3>
+                    <p>Phone: <a href="tel:+265992995151" style="color: var(--primary-blue); text-decoration: none;">+265 992995151</a></p>
+                    <p>Email: <a href="mailto:macmillanisaac08@gmail.com" style="color: var(--primary-blue); text-decoration: none;">macmillanisaac08@gmail.com</a></p>
+                    <p>Emergency: +265 999 123 456</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Success PVT Secondary School</h3>
+            <p>Building futures through quality education and character development since 1995.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <p> <a href="index.html">Home</a><br>
+                <a href="about.html">About Us</a><br>
+                <a href="academics.html">Academics</a><br>
+                <a href="admissions.html">Admissions</a><br>
+                <a href="student.html">Student Life</a><br>
+                <a href="contact.html">Contact</a><br>
+                
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <p><a href="calendar.html">Calendar</a><br>
+               <a href="Staff.html">Staff Directory</a></p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p><a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank"><i class="fas fa-map-marker-alt"></i> Chichiri, Blantyre, Malawi</a><br>
+               <a href="tel:+265992995151"><i class="fas fa-phone"></i> +265 992995151</a><br>
+               <a href="mailto:macmillanisaac08@gmail.com?subject=Enquiry%20from%20Success%20School%20Website&body=Hello%2C%20I%20would%20like%20to%20inquire%20about%3A"><i class="fas fa-envelope"></i> macmillanisaac08@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Success PVT Secondary School. All rights reserved. | Developed by Mc Phone Accessories</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-links").classList.toggle("show");
+    }
+
+    function togglePrograms() {
+        var hiddenPrograms = document.getElementById("hidden-programs");
+        var seeAllBtn = document.getElementById("see-all-programs-btn");
+        
+        if (hiddenPrograms.classList.contains("show")) {
+            hiddenPrograms.classList.remove("show");
+            seeAllBtn.textContent = "See All Programs";
+        } else {
+            hiddenPrograms.classList.add("show");
+            seeAllBtn.textContent = "Show Less";
+        }
+    }
+
+    function toggleActivities() {
+        var hiddenActivities = document.getElementById("hidden-activities");
+        var seeAllBtn = document.getElementById("see-all-activities-btn");
+        
+        if (hiddenActivities.classList.contains("show")) {
+            hiddenActivities.classList.remove("show");
+            seeAllBtn.textContent = "See All Activities";
+        } else {
+            hiddenActivities.classList.add("show");
+            seeAllBtn.textContent = "Show Less";
+        }
+    }
+</script>
+
+</body>
+</html>

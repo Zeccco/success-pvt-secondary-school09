@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Success PVT Secondary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a2e5c;
+            --accent-gold: #d4a017;
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header-wrapper {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            height: 100px;
+            width: auto;
+        }
+
+        .logo-text h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        .motto {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-blue);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .mobile-contact {
+            display: none;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(10, 46, 92, 0.85), rgba(212, 160, 23, 0.7)), url('Intro.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+
+        .breadcrumb span {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Welcome Message */
+        .welcome-message {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .welcome-message i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .welcome-message h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            margin-bottom: 60px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .step-card i {
+            color: var(--accent-gold);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            background: var(--light-bg);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .requirement-category {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .requirement-category h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .requirement-list {
+            list-style: none;
+        }
+
+        .requirement-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #555;
+        }
+
+        .requirement-list i {
+            color: var(--accent-gold);
+            margin-top: 3px;
+        }
+
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .fee-item:last-child {
+            border-bottom: none;
+        }
+
+        .fee-item span:first-child {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .fee-item span:last-child {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(212, 160, 23, 0.1);
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 5px;
+            font-style: italic;
+            color: #666;
+        }
+
+        .note i {
+            color: var(--accent-gold);
+            margin-right: 10px;
+        }
+
+        /* Application Form Section */
+        .form-section {
+            margin-bottom: 60px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .form-group label i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        .form-submit {
+            background: var(--primary-blue);
+            color: white;
+            padding: 15px 45px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Important Dates */
+        .dates-section {
+            background: var(--primary-blue);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .dates-section .section-header h2 {
+            color: white;
+        }
+
+        .dates-section .section-header p {
+            color: #ddd;
+        }
+
+        .dates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .date-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .date-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .date-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .date-card .date {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .date-card .day {
+            color: #ddd;
+            font-size: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: var(--light-bg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-question h3 {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: var(--accent-gold);
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background: white;
+        }
+
+        .faq-answer.show {
+            padding: 20px;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Contact Info Box */
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4a7a 100%);
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .contact-box p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-box i {
+            color: var(--accent-gold);
+            margin-right: 10px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            background: #e5b01a;
+        }
+
+        .contact-btn i {
+            color: var(--primary-blue);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid h3, .footer-grid h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .footer-grid i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        .footer-grid a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .footer-grid a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .footer-grid div:last-child a {
+            display: inline-block;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .footer-grid div:last-child a i {
+            width: 25px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+            padding-left: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-info {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logo-area {
+                flex-direction: column;
+            }
+
+            .header-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-direction: column;
+                display: none;
+                background: var(--primary-blue);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-contact {
+                display: block;
+            }
+
+            main {
+                margin-top: 170px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .dates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="logo.png" alt="Success School Logo">
+            <div class="logo-text">
+                <h2>Success PVT Secondary School</h2>
+                <small class="motto">Building Futures, Shaping Leaders</small>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html" class="active">Admissions</a></li>
+            <li><a href="student.html">Student Life</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div>
+        <h1>Admissions</h1>
+        <p>Join our community of learners and start your journey towards academic excellence</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <span>Admissions</span>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <i class="fas fa-handshake"></i>
+            <h3>Welcome to Success PVT Secondary School</h3>
+            <p>We are delighted that you are considering Success PVT Secondary School for your child's education. Our admissions process is designed to be straightforward and transparent, ensuring that every student who joins our community finds the right path to success.</p>
+        </div>
+
+        <!-- Application Steps -->
+        <div class="steps-section">
+            <div class="section-header">
+                <h2>Application Steps</h2>
+                <p>Follow these simple steps to apply for admission</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Complete Application</h3>
+                    <p>Fill out the online application form or collect a physical form from our school office.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-folder-open"></i>
+                    <h3>Submit Documents</h3>
+                    <p>Submit all required documents including previous school reports and birth certificate.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Entrance Assessment</h3>
+                    <p>Students may be required to take an entrance assessment in core subjects.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Admission Decision</h3>
+                    <p>Receive admission decision and complete enrollment if accepted.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Requirements Section -->
+        <div class="requirements-section">
+            <div class="section-header">
+                <h2>Admission Requirements</h2>
+                <p>Documents and requirements for admission</p>
+            </div>
+
+            <div class="requirements-grid">
+                <div class="requirement-category">
+                    <h3>Documents Required</h3>
+                    <ul class="requirement-list">
+                        <li><i class="fas fa-check-circle"></i> Completed application form</li>
+                        <li><i class="fas fa-check-circle"></i> Birth certificate (original & copy)</li>
+                        <li><i class="fas fa-check-circle"></i> 2 passport-sized photos</li>
+                        <li><i class="fas fa-check-circle"></i> Previous school reports (last 2 years)</li>
+                        <li><i class="fas fa-check-circle"></i> Primary School Leaving Certificate (Form 1 applicants)</li>
+                        <li><i class="fas fa-check-circle"></i> Transfer letter from previous school</li>
+                        <li><i class="fas fa-check-circle"></i> Immunization records</li>
+                    </ul>
+                </div>
+                <div class="requirement-category">
+                    <h3>Fee Structure (Per Term)</h3>
+                    <div class="fee-item">
+                        <span>Form 1 & 2</span>
+                        <span>MWK 85,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Form 3 & 4</span>
+                        <span>MWK 95,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Development Fund</span>
+                        <span>MWK 15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Sports & Activities</span>
+                        <span>MWK 10,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>ICT/Lab Fee</span>
+                        <span>MWK 8,000</span>
+                    </div>
+                    <div class="fee-item" style="font-weight: bold; color: var(--primary-blue);">
+                        <span>Total (approx)</span>
+                        <span>MWK 118,000 - 128,000</span>
+                    </div>
+                    <div class="note">
+                        <i class="fas fa-info-circle"></i> Fees are payable per term. Additional charges may apply for uniforms, books, and special programs.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Dates -->
+        <div class="dates-section">
+            <div class="section-header">
+                <h2>Important Dates</h2>
+                <p>Key dates for the 2026 admissions cycle</p>
+            </div>
+
+            <div class="dates-grid">
+                <div class="date-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Applications Open</h3>
+                    <div class="date">September 1, 2025</div>
+                    <div class="day">Monday</div>
+                </div>
+                <div class="date-card">
+                    <i class="fas fa-calendar-times"></i>
+                    <h3>Deadline</h3>
+                    <div class="date">November 30, 2025</div>
+                    <div class="day">Sunday</div>
+                </div>
+                <div class="date-card">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Entrance Exams</h3>
+                    <div class="date">December 5-7, 2025</div>
+                    <div class="day">Friday - Sunday</div>
+                </div>
+                <div class="date-card">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Results Released</h3>
+                    <div class="date">December 20, 2025</div>
+                    <div class="day">Saturday</div>
+                </div>
+                <div class="date-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Acceptance Deadline</h3>
+                    <div class="date">January 5, 2026</div>
+                    <div class="day">Monday</div>
+                </div>
+                <div class="date-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>First Day of Term</h3>
+                    <div class="date">January 8, 2026</div>
+                    <div class="day">Thursday</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Form -->
+        <div class="form-section">
+            <div class="section-header">
+                <h2>Online Application</h2>
+                <p>Fill out the form below to start your application</p>
+            </div>
+
+            <div class="form-container">
+                <form id="admissionForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> First Name *</label>
+                            <input type="text" required placeholder="Enter first name">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Last Name *</label>
+                            <input type="text" required placeholder="Enter last name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Date of Birth *</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-venus-mars"></i> Gender *</label>
+                            <select required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-graduation-cap"></i> Applying for Form *</label>
+                            <select required>
+                                <option value="">Select Form</option>
+                                <option value="1">Form 1</option>
+                                <option value="2">Form 2</option>
+                                <option value="3">Form 3</option>
+                                <option value="4">Form 4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-book"></i> Preferred Program</label>
+                            <select>
+                                <option value="">Select Program (Optional)</option>
+                                <option value="science">Science Stream</option>
+                                <option value="humanities">Humanities Stream</option>
+                                <option value="commerce">Commerce & ICT</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Parent/Guardian Phone *</label>
+                            <input type="tel" required placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address *</label>
+                            <input type="email" required placeholder="Enter email address">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Home Address *</label>
+                        <textarea required placeholder="Enter your home address"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-school"></i> Previous School *</label>
+                        <input type="text" required placeholder="Name of previous school">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Additional Information</label>
+                        <textarea placeholder="Any additional information you'd like to share?"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I confirm that the information provided is accurate and I have read the <a href="#" style="color: var(--accent-gold);">terms and conditions</a>.</label>
+                    </div>
+
+                    <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Submit Application</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about admissions</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>When does the admissions process begin?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Applications for the 2026 academic year open on September 1, 2025. We encourage parents to apply early as spaces are limited.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Is there an entrance examination?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, students applying for Form 1 are required to take an entrance assessment in Mathematics, English, and General Knowledge. Transfer students may be assessed based on previous school performance.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What are the payment options for fees?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Fees can be paid termly at the school bursar's office or via bank transfer to our school account. Payment plans may be available upon request.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you offer scholarships or financial aid?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer merit-based scholarships and need-based financial aid. Applications for financial assistance should be submitted along with the admission application.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can I visit the school before applying?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We encourage parents to schedule a tour of our facilities. Please contact our admissions office to arrange a visit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Box -->
+        <div class="contact-box">
+            <h3>Need Help?</h3>
+            <p><i class="fas fa-phone-alt"></i> Call us: <a href="tel:+265992995151" style="color: white;">+265 992995151</a></p>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:macmillanisaac08@gmail.com" style="color: white;">macmillanisaac08@gmail.com</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Visit: Chichiri, Blantyre, Malawi</p>
+            <div class="contact-buttons">
+                <a href="tel:+265992995151" class="contact-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="mailto:macmillanisaac08@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> Email Us</a>
+                
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Success PVT Secondary School</h3>
+            <p>Building futures through quality education and character development since 1995.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a><br>
+               <a href="about.html">About Us</a><br>
+               <a href="admissions.html">Admissions</a><br>
+               <a href="academics.html">Academics</a><br>
+               
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <p><a href="calendar.html">Calendar</a><br>
+               
+               <a href="staff.html">Staff Directory</a></p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p><a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank"><i class="fas fa-map-marker-alt"></i> Chichiri, Blantyre, Malawi</a><br>
+               <a href="tel:+265992995151"><i class="fas fa-phone"></i> +265 992995151</a><br>
+               <a href="mailto:macmillanisaac08@gmail.com?subject=Enquiry%20from%20Success%20School%20Website&body=Hello%2C%20I%20would%20like%20to%20inquire%20about%3A"><i class="fas fa-envelope"></i> macmillanisaac08@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Success PVT Secondary School. All rights reserved. | Developed by Mc Phone Accessories</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-links").classList.toggle("show");
+    }
+
+    function toggleFAQ(element) {
+        var answer = element.nextElementSibling;
+        var icon = element.querySelector('i');
+        
+        if (answer.classList.contains('show')) {
+            answer.classList.remove('show');
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        } else {
+            answer.classList.add('show');
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('admissionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your application! We will contact you soon.');
+        this.reset();
+    });
+</script>
+
+</body>
+</html>

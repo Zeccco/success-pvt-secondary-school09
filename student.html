@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Life - Success PVT Secondary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a2e5c;
+            --accent-gold: #d4a017;
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header-wrapper {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            height: 100px;
+            width: auto;
+        }
+
+        .logo-text h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        .motto {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-blue);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .mobile-contact {
+            display: none;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(10, 46, 92, 0.85), rgba(212, 160, 23, 0.7)), url('Intro.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+
+        .breadcrumb span {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Hero Quote */
+        .hero-quote {
+            background: var(--light-bg);
+            padding: 60px 5%;
+            text-align: center;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .hero-quote i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .hero-quote p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary-blue);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .hero-quote .quote-author {
+            margin-top: 20px;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Activities Grid */
+        .activities-section {
+            margin-bottom: 60px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .activity-content {
+            padding: 25px;
+        }
+
+        .activity-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .activity-content p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .activity-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .activity-tag {
+            background: var(--light-bg);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .activity-tag i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        /* Clubs & Societies */
+        .clubs-section {
+            background: var(--light-bg);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .club-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .club-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .club-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .club-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .club-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .club-meeting {
+            background: var(--light-bg);
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .club-meeting i {
+            font-size: 0.9rem;
+            margin-right: 5px;
+            color: var(--accent-gold);
+        }
+
+        /* Sports Section */
+        .sports-section {
+            margin-bottom: 60px;
+        }
+
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .sport-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .sport-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .sport-card h3 {
+            color: var(--primary-blue);
+            margin: 15px 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .sport-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Events Calendar */
+        .events-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4a7a 100%);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .events-section .section-header h2 {
+            color: white;
+        }
+
+        .events-section .section-header p {
+            color: #ddd;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .event-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 25px;
+            backdrop-filter: blur(5px);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .event-date {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .event-date .day {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .event-details h3 {
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .event-details p {
+            color: #ddd;
+            font-size: 0.95rem;
+        }
+
+        .event-details i {
+            margin-right: 5px;
+            color: var(--accent-gold);
+        }
+
+        /* Facilities */
+        .facilities-section {
+            margin-bottom: 60px;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .facility-item {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .facility-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .facility-item i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .facility-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .facility-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Photo Gallery */
+        .gallery-section {
+            margin-bottom: 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10, 46, 92, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: white;
+            font-weight: 600;
+        }
+
+        .gallery-overlay i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--light-bg);
+            padding: 60px 5%;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .testimonial-text {
+            color: #555;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(10, 46, 92, 0.9), rgba(10, 46, 92, 0.9)), url('Intro.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 5%;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 15px 45px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: transform 0.3s;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background: #e5b01a;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid h3, .footer-grid h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .footer-grid i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        .footer-grid a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .footer-grid a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .footer-grid div:last-child a {
+            display: inline-block;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .footer-grid div:last-child a i {
+            width: 25px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+            padding-left: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-info {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logo-area {
+                flex-direction: column;
+            }
+
+            .header-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-direction: column;
+                display: none;
+                background: var(--primary-blue);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-contact {
+                display: block;
+            }
+
+            main {
+                margin-top: 170px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .clubs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .event-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-wrapper">
+    <header class="top-bar">
+        <div class="logo-area">
+            <img src="logo.png" alt="Success School Logo">
+            <div class="logo-text">
+                <h2>Success PVT Secondary School</h2>
+                <small class="motto">Building Futures, Shaping Leaders</small>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> <a href="tel:+265992995151">+265 992995151</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:macmillanisaac08@gmail.com">macmillanisaac08@gmail.com</a></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="student.html" class="active">Student Life</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div>
+        <h1>Student Life</h1>
+        <p>Experience a vibrant and enriching school life beyond the classroom</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <span>Student Life</span>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <!-- Hero Quote -->
+        <div class="hero-quote">
+            <i class="fas fa-quote-left"></i>
+            <p>"Education is not just about textbooks and exams. It's about discovering passions, building friendships, and creating memories that last a lifetime."</p>
+            <div class="quote-author">— Success PVT Student Council</div>
+        </div>
+
+        <!-- Activities Section (3 visible initially, more on See All) -->
+        <div class="activities-section">
+            <div class="section-header">
+                <h2>Activities & Recreation</h2>
+                <p>Discover the many ways students engage and have fun</p>
+            </div>
+
+            <div class="activities-grid" id="initial-activities">
+                <div class="activity-card">
+                    <img src="sports.jpg" alt="Sports">
+                    <div class="activity-content">
+                        <h3>Sports & Recreation</h3>
+                        <p>Football, netball, basketball, athletics, and volleyball. Annual sports day and inter-house competitions.</p>
+                        <div class="activity-tags">
+                            <span class="activity-tag"><i class="fas fa-clock"></i> Mon, Wed, Fri</span>
+                            <span class="activity-tag"><i class="fas fa-users"></i> All Forms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <img src="library.jpeg" alt="Library">
+                    <div class="activity-content">
+                        <h3>Library & Study Groups</h3>
+                        <p>Quiet study spaces, group discussions, and access to extensive resources including past papers.</p>
+                        <div class="activity-tags">
+                            <span class="activity-tag"><i class="fas fa-clock"></i> Daily</span>
+                            <span class="activity-tag"><i class="fas fa-book"></i> All Students</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <img src="club.jpeg" alt="Clubs">
+                    <div class="activity-content">
+                        <h3>Clubs & Societies</h3>
+                        <p>Debate club, science club, journalism, drama, and more. Find your passion and make friends.</p>
+                        <div class="activity-tags">
+                            <span class="activity-tag"><i class="fas fa-clock"></i> Tue, Thu</span>
+                            <span class="activity-tag"><i class="fas fa-users"></i> All Forms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Activities (5 additional) -->
+            <div class="hidden-activities" id="hidden-activities" style="display: none;">
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <img src="choir.jfif" alt="Music & Choir">
+                        <div class="activity-content">
+                            <h3>Music & Choir</h3>
+                            <p>School choir, band practice, music lessons, and annual music festivals. Develop your musical talents.</p>
+                            <div class="activity-tags">
+                                <span class="activity-tag"><i class="fas fa-clock"></i> Mon, Wed</span>
+                                <span class="activity-tag"><i class="fas fa-music"></i> All Forms</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="trip.jpg" alt="Field Trips">
+                        <div class="activity-content">
+                            <h3>Educational Trips</h3>
+                            <p>Historical sites, museum visits, nature walks, and educational tours to enhance learning.</p>
+                            <div class="activity-tags">
+                                <span class="activity-tag"><i class="fas fa-clock"></i> Quarterly</span>
+                                <span class="activity-tag"><i class="fas fa-bus"></i> Selected Forms</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="community.jfif" alt="Community Service">
+                        <div class="activity-content">
+                            <h3>Community Service</h3>
+                            <p>Volunteer work, charity events, environmental clean-up, and outreach programs.</p>
+                            <div class="activity-tags">
+                                <span class="activity-tag"><i class="fas fa-clock"></i> Weekends</span>
+                                <span class="activity-tag"><i class="fas fa-heart"></i> All Forms</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="comp.jfif" alt="Competitions">
+                        <div class="activity-content">
+                            <h3>Academic Competitions</h3>
+                            <p>Quiz bowls, spelling bees, science fairs, and debate championships.</p>
+                            <div class="activity-tags">
+                                <span class="activity-tag"><i class="fas fa-clock"></i> Monthly</span>
+                                <span class="activity-tag"><i class="fas fa-trophy"></i> All Forms</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="culture.jfif" alt="Cultural Events">
+                        <div class="activity-content">
+                            <h3>Cultural Events</h3>
+                            <p>Cultural day, traditional dances, food fairs, and heritage celebrations.</p>
+                            <div class="activity-tags">
+                                <span class="activity-tag"><i class="fas fa-clock"></i> Termly</span>
+                                <span class="activity-tag"><i class="fas fa-flag"></i> All Forms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="see-all-btn" id="see-all-activities-btn" onclick="toggleActivities()" style="background: var(--primary-blue); color: white; padding: 12px 35px; border: none; border-radius: 5px; font-weight: bold; margin-top: 30px; cursor: pointer; transition: all 0.3s;">See All Activities</button>
+        </div>
+
+        <!-- Clubs & Societies -->
+        <div class="clubs-section">
+            <div class="section-header">
+                <h2>Clubs & Societies</h2>
+                <p>Join a club and discover your passion</p>
+            </div>
+
+            <div class="clubs-grid">
+                <div class="club-card">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h3>Debate Club</h3>
+                    <p>Develop public speaking, critical thinking, and argumentation skills. Compete in regional debates.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Tuesdays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Science Club</h3>
+                    <p>Hands-on experiments, science fairs, and exploration of scientific concepts beyond the curriculum.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Wednesdays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Journalism Club</h3>
+                    <p>Write for the school magazine, learn reporting skills, and document school events.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Thursdays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Music & Choir</h3>
+                    <p>Sing in the school choir, learn instruments, and perform at school events.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Mondays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-drama-masks"></i>
+                    <h3>Drama Club</h3>
+                    <p>Theater performances, acting workshops, and annual school productions.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Fridays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Red Cross Society</h3>
+                    <p>First aid training, community service, and humanitarian activities.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Wednesdays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-chess"></i>
+                    <h3>Chess Club</h3>
+                    <p>Strategic thinking, friendly competitions, and chess tournaments.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Tuesdays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Environmental Club</h3>
+                    <p>Tree planting, recycling initiatives, and environmental awareness campaigns.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Thursdays 2:30 PM</div>
+                </div>
+                <div class="club-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Coding Club</h3>
+                    <p>Learn programming basics, build websites, and explore technology.</p>
+                    <div class="club-meeting"><i class="fas fa-clock"></i> Fridays 2:30 PM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sports Teams -->
+        <div class="sports-section">
+            <div class="section-header">
+                <h2>Sports Teams</h2>
+                <p>Represent the school in various sports competitions</p>
+            </div>
+
+            <div class="sports-grid">
+                <div class="sport-card">
+                    <img src="sports.jpg" alt="Football">
+                    <h3>Football</h3>
+                    <p>Boys & Girls Teams</p>
+                </div>
+                <div class="sport-card">
+                    <img src="netball.jfif" alt="Netball">
+                    <h3>Netball</h3>
+                    <p>Girls Team</p>
+                </div>
+                <div class="sport-card">
+                    <img src="basketball.jfif" alt="Basketball">
+                    <h3>Basketball</h3>
+                    <p>Boys & Girls Teams</p>
+                </div>
+                <div class="sport-card">
+                    <img src="athletics.jfif" alt="Athletics">
+                    <h3>Athletics</h3>
+                    <p>Track & Field</p>
+                </div>
+                <div class="sport-card">
+                    <img src="volleyball.jfif" alt="Volleyball">
+                    <h3>Volleyball</h3>
+                    <p>Boys & Girls Teams</p>
+                </div>
+                <div class="sport-card">
+                    <img src="swimming.jfif" alt="Swimming">
+                    <h3>Swimming</h3>
+                    <p>All Levels</p>
+                </div>
+                <div class="sport-card">
+                    <img src="hand.jfif" alt="Handball">
+                    <h3>Handball</h3>
+                    <p>Boys & Girls Teams</p>
+                </div>
+                <div class="sport-card">
+                    <img src="table.jfif" alt="Table Tennis">
+                    <h3>Table Tennis</h3>
+                    <p>All Levels</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="events-section">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Mark your calendar for these exciting activities</p>
+            </div>
+
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">MAR</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Sports Day</h3>
+                        <p><i class="fas fa-clock"></i> 8:00 AM - 4:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Grounds</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">22</span>
+                        <span class="month">MAR</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Debate Competition</h3>
+                        <p><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Hall</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">05</span>
+                        <span class="month">APR</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Cultural Day</h3>
+                        <p><i class="fas fa-clock"></i> 9:00 AM - 3:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Grounds</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">12</span>
+                        <span class="month">APR</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Science Fair</h3>
+                        <p><i class="fas fa-clock"></i> 10:00 AM - 4:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Science Lab</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">19</span>
+                        <span class="month">APR</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Music Festival</h3>
+                        <p><i class="fas fa-clock"></i> 1:00 PM - 6:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Hall</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">26</span>
+                        <span class="month">APR</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Parents' Day</h3>
+                        <p><i class="fas fa-clock"></i> 9:00 AM - 2:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Hall</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Facilities -->
+        <div class="facilities-section">
+            <div class="section-header">
+                <h2>Student Facilities</h2>
+                <p>Resources and spaces designed for student well-being</p>
+            </div>
+
+            <div class="facilities-grid">
+                <div class="facility-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Cafeteria</h3>
+                    <p>Healthy meals and snacks available daily</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-first-aid"></i>
+                    <h3>Health Center</h3>
+                    <p>First aid and basic medical care</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Wi-Fi Zone</h3>
+                    <p>Internet access for research</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-bed"></i>
+                    <h3>Boarding Facilities</h3>
+                    <p>Comfortable dormitories</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-bus"></i>
+                    <h3>Transport</h3>
+                    <p>School bus service available</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security</h3>
+                    <p>24/7 campus security</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-futbol"></i>
+                    <h3>Playgrounds</h3>
+                    <p>Multiple sports fields</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-water"></i>
+                    <h3>Clean Water</h3>
+                    <p>Safe drinking water stations</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="gallery-section">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <p>Moments captured from school life</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="sports.jpg" alt="Sports Day">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Sports Day 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="club.jpeg" alt="Debate Club">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Debate Competition</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="choir.jpg" alt="Choir">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Music Festival</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="culture.jfif" alt="Cultural Day">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Cultural Day</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="trip.jpg" alt="Field Trip">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Field Trip</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="comp.jfif" alt="Science Fair">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Science Fair</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="community.jfif" alt="Community Service">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Community Service</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="library.jpeg" alt="Library">
+                    <div class="gallery-overlay">
+                        <span><i class="fas fa-camera"></i> Library Session</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials-section">
+            <div class="section-header">
+                <h2>What Students Say</h2>
+                <p>Hear from our students about their experience</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"Success School has given me opportunities I never imagined. From debate club to sports, I've grown so much both academically and personally."</p>
+                    <div class="testimonial-author">
+                        <img src="bashie.jpg" alt="Student" class="author-image">
+                        <div class="author-info">
+                            <h4>Basheerah Elias</h4>
+                            <p>Form 4, Head Girl</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"The teachers here genuinely care about our success. The library and study resources helped me achieve top marks in my exams."</p>
+                    <div class="testimonial-author">
+                        <img src="mc.jpg" alt="Student" class="author-image">
+                        <div class="author-info">
+                            <h4>Macmillan Isaac</h4>
+                            <p>Form 4, Science Club President</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Experience a vibrant student life that nurtures both academic and personal growth.</p>
+            <a href="admissions.html" class="cta-btn">Apply Now</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Success PVT Secondary School</h3>
+            <p>Building futures through quality education and character development since 1995.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a><br>
+               <a href="about.html">About Us</a><br>
+               <a href="admissions.html">Admissions</a><br>
+               <a href="academics.html">Academics</a><br>
+               <a href="student.html">Student Life</a></p>
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <p><a href="calendar.html">Calendar</a><br>
+               <a href="staff.html">Staff Directory</a></p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p><a href="https://maps.google.com/?q=Chichiri+Blantyre+Malawi" target="_blank"><i class="fas fa-map-marker-alt"></i> Chichiri, Blantyre, Malawi</a><br>
+               <a href="tel:+265992995151"><i class="fas fa-phone"></i> +265 992995151</a><br>
+               <a href="mailto:macmillanisaac08@gmail.com?subject=Enquiry%20from%20Success%20School%20Website&body=Hello%2C%20I%20would%20like%20to%20inquire%20about%3A"><i class="fas fa-envelope"></i> macmillanisaac08@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Success PVT Secondary School. All rights reserved. | Developed by Mc Phone Accessories</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-links").classList.toggle("show");
+    }
+
+    function toggleActivities() {
+        var hiddenActivities = document.getElementById("hidden-activities");
+        var seeAllBtn = document.getElementById("see-all-activities-btn");
+        
+        if (hiddenActivities.style.display === "none") {
+            hiddenActivities.style.display = "block";
+            seeAllBtn.textContent = "Show Less";
+        } else {
+            hiddenActivities.style.display = "none";
+            seeAllBtn.textContent = "See All Activities";
+        }
+    }
+</script>
+
+</body>
+</html>
