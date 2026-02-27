@@ -437,6 +437,40 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
+                    /* ADD THESE NEW RULES */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .btn-explore, .see-all-btn {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px auto;
+        text-align: center;
+        display: block;
+    }
+}
+
+/* ADD THIS NEW MEDIA QUERY AFTER THE EXISTING ONE */
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .section h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .card {
+        margin: 0 10px 20px !important;
+    }
+    
+    .hero-logo {
+        width: 100px !important;
+    }
+}
             }
 
             .logo-area {
@@ -870,4 +904,5 @@
 </script>
 
 </body>
+
 </html>
